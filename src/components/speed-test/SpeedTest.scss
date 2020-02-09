@@ -1,0 +1,22 @@
+.speed-test {
+    display: flex;
+    flex-direction: column;
+}
+
+* {
+    margin-bottom: 2rem;
+}
+
+.speed-test__text {
+  span.is-active {
+    background-color: lighten(grey, 20);
+  }
+
+  span.is-invalid {
+    background-color: lighten(red, 20);
+  }
+
+  span.is-valid {
+    background-color: lighten(green, 20);
+  }
+}
