@@ -1,9 +1,19 @@
 import React from 'react';
-import {shallow} from 'enzyme';
-import {Timer} from './Timer';
+import { Timer } from './Timer';
+import { render, screen } from '@testing-library/react';
 
 test('renders correctly', () => {
-  const wrapper = shallow(<Timer initTime={60} onTimeOver={()=>{}}/>);
+  const wrapper = render(<Timer initTime={60} onTimeOver={()=>{}}/>);
 
-  expect(wrapper).toMatchSnapshot();
+  expect(wrapper.container.firstChild).toMatchSnapshot();
+});
+
+test('ticks correctly', () => {
+  render(
+    <Timer
+      initTime={60}
+      onTimeOver={() => {}}
+    />
+  );
+  expect(screen.getByText('01:00')).toBeTruthy();
 });

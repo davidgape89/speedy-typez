@@ -59,4 +59,4 @@ export const Timer = forwardRef(({
       {seconds.length === 1 ? `0${seconds}`: seconds}
     </span>
   )
-})
+});
