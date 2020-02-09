@@ -16,7 +16,7 @@ export interface TimerRef {
   reset: () => void;
 }
 
-export const CountDownTimer = forwardRef(({
+export const Timer = forwardRef(({
     isRunning = true,
     initTime,
     direction = TimerDirection.DESC,

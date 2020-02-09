@@ -1,9 +1,9 @@
 import React from 'react';
-import App from './App';
 import {shallow} from 'enzyme';
+import {Timer} from './Timer';
 
 test('renders correctly', () => {
-  const wrapper = shallow(<App />);
+  const wrapper = shallow(<Timer initTime={60} onTimeOver={()=>{}}/>);
 
   expect(wrapper).toMatchSnapshot();
 });

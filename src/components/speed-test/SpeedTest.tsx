@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import {CountDownTimer, TimerRef} from '../timer/Timer';
+import {Timer, TimerRef} from '../timer/Timer';
 import {englishText} from './words';
 import './SpeedTest.scss';
 
@@ -85,7 +85,7 @@ const SpeedTest = () => {
         onChange={e => setInput(e.target.value)}
         onKeyDown={handleKeyPress}
       />
-      <CountDownTimer
+      <Timer
         ref={timerRef}
         initTime={60 * 1}
         isRunning={isRunning}
