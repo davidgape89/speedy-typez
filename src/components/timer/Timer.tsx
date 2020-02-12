@@ -51,6 +51,8 @@ export const Timer = forwardRef(({
       clearTimeout(timeoutRef);
       setTimeoutRef(null);
     }
+
+    return () => clearTimeout(timeoutRef);
   }, [isRunning, timeoutRef]);
 
   return (
