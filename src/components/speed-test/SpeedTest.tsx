@@ -1,14 +1,14 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import {Timer, TimerRef} from '../timer/Timer';
 import {englishText} from './words';
 import './SpeedTest.scss';
 
 const SpeedTest = () => {
-  const [input, setInput] = React.useState<string>('');
-  const [isRunning, setIsRunning] = React.useState<boolean>(false);
-  const [isDisabled, setIsDisabled] = React.useState<boolean>(false);
-  const [inputStack, setInputStack] = React.useState<string[]>([]);
   const timerRef = useRef<TimerRef>();
+  const [input, setInput] = useState<string>('');
+  const [isRunning, setIsRunning] = useState<boolean>(false);
+  const [isDisabled, setIsDisabled] = useState<boolean>(false);
+  const [inputStack, setInputStack] = useState<string[]>([]);
   const words = englishText.replace(/\n/g, '').split(' ');
 
   useEffect(() => {
@@ -16,6 +16,11 @@ const SpeedTest = () => {
       setIsRunning(true);
     }
   }, [input]);
+
+  useEffect(() => {
+    const activeEl: HTMLElement | null = document.querySelector('.is-active');
+    if(activeEl) activeEl.scrollIntoView();
+  }, [inputStack]);
 
   function reset() {
     setInput('');
