@@ -56,7 +56,7 @@ export const Timer = forwardRef(({
   }, [isRunning, timeoutRef]);
 
   return (
-    <span>
+    <span className="timer">
       {minutes.length === 1 ? `0${minutes}`: minutes}:
       {seconds.length === 1 ? `0${seconds}`: seconds}
     </span>

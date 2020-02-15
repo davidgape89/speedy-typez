@@ -1,0 +1,22 @@
+.text-viewer {
+  font-size: 6rem;
+  height: 19rem;
+  overflow-y: hidden;
+
+  span {
+    border-radius: 1rem;
+    padding: 2px;
+  }
+
+  span.is-active {
+    background-color: lighten(grey, 30);
+  }
+
+  span.is-invalid {
+    background-color: lighten(red, 30);
+  }
+
+  span.is-valid {
+    background-color: lighten(green, 50);
+  }
+}

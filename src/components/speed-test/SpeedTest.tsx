@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import {Timer, TimerRef} from '../timer/Timer';
 import {englishText} from './words';
 import './SpeedTest.scss';
+import { TextViewer } from '../text-viewer/TextViewer';
 
 const SpeedTest = () => {
   const timerRef = useRef<TimerRef>();
@@ -12,15 +13,10 @@ const SpeedTest = () => {
   const words = englishText.replace(/\n/g, '').split(' ');
 
   useEffect(() => {
-    if(input.length > 0) {
+    if(input.length > 0 && !isRunning) {
       setIsRunning(true);
     }
   }, [input]);
-
-  useEffect(() => {
-    const activeEl: HTMLElement | null = document.querySelector('.is-active');
-    if(activeEl) activeEl.scrollIntoView();
-  }, [inputStack]);
 
   function reset() {
     setInput('');
@@ -40,11 +36,13 @@ const SpeedTest = () => {
 
   function handleKeyPress(e: React.KeyboardEvent<HTMLInputElement>) {
     switch(e.keyCode){
+      // Space hit
       case 32:
         e.preventDefault();
         setInputStack([...inputStack, input]);
         setInput('');
         break;
+      // Backspace
       case 8:
         if(inputStack.length > 0 && !input.length) {
           e.preventDefault();
@@ -53,35 +51,20 @@ const SpeedTest = () => {
           setInputStack(inputStack.slice(0, lastIndex))
         }
         break;
+      // Escape restarts
       case 27:
         reset();
         break;
     }
   }
 
-  function getWordStatus(i: number) {
-    if (inputStack[i]) {
-      if(words[i] === inputStack[i]) return "is-valid";
-      else return "is-invalid";
-    } else if (inputStack.length === i) {
-      if(words[i].startsWith(input)) return "is-active";
-      else return "is-invalid";
-    }
-  }
-
   return (
     <div className="speed-test">
-      <div className="speed-test__text">
-        {words.map((word, i) => (
-          <React.Fragment key={i}>
-            <span
-              className={getWordStatus(i)}>
-              {word}
-            </span>
-            <span>{' '}</span>
-          </React.Fragment>
-        ))}
-      </div>
+      <TextViewer
+        words={words}
+        inputStack={inputStack}
+        activeInput={input}
+      />
       <input
         type="text"
         className="speed-test__input"
