@@ -16,7 +16,7 @@ const SpeedTest = () => {
     if(input.length > 0 && !isRunning) {
       setIsRunning(true);
     }
-  }, [input]);
+  }, [input, isRunning]);
 
   function reset() {
     setInput('');
