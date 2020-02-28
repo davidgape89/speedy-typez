@@ -1,10 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
-import {Timer, TimerRef} from '../timer/Timer';
-import {englishText} from './words';
-import './SpeedTest.scss';
+import { Timer, TimerRef } from '../timer/Timer';
+import { englishText } from './words';
 import { TextViewer } from '../text-viewer/TextViewer';
 
-const SpeedTest = () => {
+import './SpeedTest.scss';
+
+export default function SpeedTest() {
   const timerRef = useRef<TimerRef>();
   const [input, setInput] = useState<string>('');
   const [isRunning, setIsRunning] = useState<boolean>(false);
@@ -13,7 +14,7 @@ const SpeedTest = () => {
   const words = englishText.replace(/\n/g, '').split(' ');
 
   useEffect(() => {
-    if(input.length > 0 && !isRunning) {
+    if (input.length > 0 && !isRunning) {
       setIsRunning(true);
     }
   }, [input, isRunning]);
@@ -23,19 +24,15 @@ const SpeedTest = () => {
     setInputStack([]);
     setIsDisabled(false);
     setIsRunning(false);
-    if(timerRef && timerRef.current) timerRef.current.reset();
+    if (timerRef && timerRef.current) timerRef.current.reset();
   }
 
   function handleTimeOver() {
     setIsDisabled(true);
   }
 
-  function handleTicker() {
-    setIsRunning(!isRunning);
-  }
-
   function handleKeyPress(e: React.KeyboardEvent<HTMLInputElement>) {
-    switch(e.keyCode){
+    switch (e.keyCode) {
       // Space hit
       case 32:
         e.preventDefault();
@@ -44,7 +41,7 @@ const SpeedTest = () => {
         break;
       // Backspace
       case 8:
-        if(inputStack.length > 0 && !input.length) {
+        if (inputStack.length > 0 && !input.length) {
           e.preventDefault();
           const lastIndex = inputStack.length - 1;
           setInput(inputStack[lastIndex]);
@@ -65,26 +62,26 @@ const SpeedTest = () => {
         inputStack={inputStack}
         activeInput={input}
       />
-      <input
-        type="text"
-        className="speed-test__input"
-        disabled={isDisabled}
-        value={input}
-        onChange={e => setInput(e.target.value)}
-        onKeyDown={handleKeyPress}
-      />
-      <Timer
-        ref={timerRef}
-        initTime={60 * 1}
-        isRunning={isRunning}
-        onTimeOver={handleTimeOver}
-      />
-      <button onClick={handleTicker}>Start/stop</button>
+      <div className="speed-test__input-bar">
+        <input
+          data-testid="input-field"
+          type="text"
+          disabled={isDisabled}
+          value={input}
+          onChange={e => setInput(e.target.value)}
+          onKeyDown={handleKeyPress}
+        />
+        <Timer
+          data-testid="timer"
+          ref={timerRef}
+          initTime={60 * 1}
+          isRunning={isRunning}
+          onTimeOver={handleTimeOver}
+        />
+      </div>
       {isDisabled && <div>
         Your word count is {inputStack.length / 2}!
       </div>}
     </div>
   )
 }
-
-export default SpeedTest;

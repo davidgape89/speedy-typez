@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '@testing-library/react'
+import { render } from '@testing-library/react';
 import { TextViewer } from './TextViewer';
 import { englishText } from '../speed-test/words';
 

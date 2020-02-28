@@ -1,7 +1,9 @@
+$textSize: 2rem;
+
 .text-viewer {
-  font-size: 6rem;
-  height: 19rem;
-  overflow-y: hidden;
+  font-size: $textSize;
+  height: $textSize * 3.1;
+  overflow: hidden;
 
   span {
     border-radius: 1rem;
