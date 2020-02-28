@@ -5,4 +5,14 @@
 .speed-test {
     display: flex;
     flex-direction: column;
+    max-width: 90rem;
+}
+
+.speed-test__input-bar {
+  display: flex;
+
+  input {
+    flex: 1;
+    margin-right: 2rem;
+  }
 }

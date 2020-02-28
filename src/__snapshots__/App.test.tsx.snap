@@ -4,6 +4,11 @@ exports[`renders correctly 1`] = `
 <div
   class="App"
 >
+  <header>
+    <h1>
+      Speedy Typez
+    </h1>
+  </header>
   <div
     class="speed-test"
   >
@@ -679,21 +684,22 @@ exports[`renders correctly 1`] = `
          
       </span>
     </div>
-    <input
-      class="speed-test__input"
-      type="text"
-      value=""
-    />
-    <span
-      class="timer"
+    <div
+      class="speed-test__input-bar"
     >
-      01
-      :
-      00
-    </span>
-    <button>
-      Start/stop
-    </button>
+      <input
+        data-testid="input-field"
+        type="text"
+        value=""
+      />
+      <span
+        class="timer"
+      >
+        01
+        :
+        00
+      </span>
+    </div>
   </div>
 </div>
 `;

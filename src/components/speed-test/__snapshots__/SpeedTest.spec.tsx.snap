@@ -1,0 +1,696 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  class="speed-test"
+>
+  <div
+    class="text-viewer"
+  >
+    <span
+      class="is-active"
+    >
+      hey
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      how
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      are
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      you
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      this
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      is
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      a
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      list
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      of
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      different
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      english
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      words
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      just
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      to
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      perform
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      a
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      typing
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      speed
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      test
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      no
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      commas
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      no
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      special
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      signs
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      or
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      anything
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      like
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      that
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      just
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      words
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      like
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      for
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      instance
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      keyboard
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      mouse
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      laptop
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      lamp
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      chair
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      microphone
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      I
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      guess
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      I
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      am
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      doing
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      myself
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      no
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      favour
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      by
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      including
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      long
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      words
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      since
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      the
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      longer
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      the
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      words
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      the
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      fewer
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      I
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      will
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      be
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      able
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      to
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      write
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      in
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      this
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      text
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      this
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      is
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      quite
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      complicated
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      what
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      am
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      I
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      doing
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      I
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      just
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      remembered
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      I
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      need
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      to
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      implement
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      a
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      line
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      shifter
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      for
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      the
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      display
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      of
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      the
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      text
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      in
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      the
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      speed
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      test
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      component
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      but
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      I
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      guess
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      that
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      is
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      not
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      urgent
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      since
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      the
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      test
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      is
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      perfectly
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      doable
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      without
+    </span>
+    <span>
+       
+    </span>
+    <span>
+      it
+    </span>
+    <span>
+       
+    </span>
+  </div>
+  <div
+    class="speed-test__input-bar"
+  >
+    <input
+      data-testid="input-field"
+      type="text"
+      value=""
+    />
+    <span
+      class="timer"
+    >
+      01
+      :
+      00
+    </span>
+  </div>
+</div>
+`;
