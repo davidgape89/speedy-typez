@@ -1,0 +1,23 @@
+.keyboard {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+
+  &__row {
+    display: flex;
+  }
+
+  &__key {
+    align-items: center;
+    border-radius: 1rem;
+    display: flex;
+    height: 6rem;
+    justify-content: center;
+    transition: background-color 300ms;
+    width: 6rem;
+
+    &.active {
+      background-color: lighten(pink, .5);
+    }
+  }
+}

@@ -1,69 +1,86 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { ansiMap } from './ansiMap';
+import './Keyboard.scss';
 
-interface KeyboardKey {
-  code: number;
-  key?: string;
-  icon?: string;
+interface KeyMap {
+  [code: number]: boolean
 }
-81
- 87
- 69
- 82
- 84
- 89
- 85
- 73
- 79
- 80
 
-const keys: KeyboardKey[][] = [
-  [
-    {
-      key: 'q',
-      code: 81,
-    },
-    {
-      key: 'w',
-      code: 87,
-    },
-    {
-      key: 'e',
-      code: 69,
-    },
-    {
-      key: 'r',
-      code: 82,
-    },
-    {
-      key: 't',
-      code: 84,
-    },
-    {
-      key: 'y',
-      code: 89,
-    },
-    {
-      key: 'u',
-      code: 85,
-    },
-    {
-      key: 'i',
-      code: 73,
-    },
-    {
-      key: 'o',
-      code: 79,
-    },
-    {
-      key: 'p',
-      code: 80,
-    }
-  ]
-]
+export default function Keyboard() {
+  const [keys, setKeys] = useState<KeyMap>({});
 
-export const Keyboard = () => {
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => setCode(event.keyCode, true);
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
+  useEffect(() => {
+    const handleKeyUp = (event: KeyboardEvent) => setCode(event.keyCode, false);
+    window.addEventListener("keyup", handleKeyUp);
+    return () => window.removeEventListener('keydown', handleKeyUp);
+  }, []);
+
+  function setCode(code: number, isActive: boolean) {
+    setKeys((prevKeys) => {
+      if(!!prevKeys[code] !== isActive) {
+        return {
+          ...prevKeys,
+          [code]: isActive,
+        };
+      }
+      return prevKeys;
+    });
+  };
+
+  function keyClassName(code: number): string {
+    const classes = ['keyboard__key'];
+
+    if(keys[code]) classes.push('active');
+
+    return classes.join(' ');
+  }
 
   return (
-    <div></div>
+    <div className="keyboard">
+      {ansiMap.map((row, index) => (
+        <div key={index} className="keyboard__row">
+          {row.map((key) => (
+              <div key={key.code} className={keyClassName(key.code)}>
+                <span>{key.key}</span>
+              </div>
+            )
+          )}
+        </div>
+      ))}
+    </div>
   );
 }
+
+// export default () => {
+//   const [st, setSt] = useState<{[key:string]:boolean}>({
+//     2: true
+//   });
+
+//   function handleClick() {
+//     setSt({
+//       ...st,
+//       1: false
+//     });
+//   }
+
+//   function printObj() {
+//     let array = []
+//     for(let prop in st) {
+//       array.push(st[prop]);
+//     }
+//     return array.map((el) => (<span>{el ? 'yes' : 'no'}</span>));
+//   }
+
+//   return (
+//     <>
+//       <div>{printObj()}</div>
+//       <button onClick={handleClick}>Add</button>
+//     </>
+//   )
+// }
