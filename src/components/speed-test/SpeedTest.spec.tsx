@@ -1,6 +1,15 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import SpeedTest from './SpeedTest';
+import { TextViewer } from '../text-viewer/TextViewer';
+import { Timer } from '../timer/Timer';
+
+jest.mock('../text-viewer/TextViewer', () => ({
+  TextViewer: jest.fn(() => <div>Text viewer</div>),
+}));
+jest.mock('../timer/Timer', () => ({
+  Timer: jest.fn(() => <div>Timer</div>),
+}));
 
 test('renders correctly', () => {
   const wrapper = render(<SpeedTest />);
@@ -19,6 +28,8 @@ test('starts running once something is typed', () => {
   });
 
   jest.runAllTimers();
+
+  expect(Timer).toHaveBeenCalledWith({isRunning: true});
   // back to enzyme?
   //wrapper.getByTestId('timer').getAttribute('isRunning').toBe(true);
 });

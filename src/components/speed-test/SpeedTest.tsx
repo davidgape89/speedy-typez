@@ -1,9 +1,11 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, KeyboardEvent, ChangeEvent } from 'react';
 import { Timer, TimerRef } from '../timer/Timer';
 import { englishText } from './words';
 import { TextViewer } from '../text-viewer/TextViewer';
 
 import './SpeedTest.scss';
+
+const LETTERS_PER_WORD = 4;
 
 export default function SpeedTest() {
   const timerRef = useRef<TimerRef>();
@@ -11,6 +13,11 @@ export default function SpeedTest() {
   const [isRunning, setIsRunning] = useState<boolean>(false);
   const [isDisabled, setIsDisabled] = useState<boolean>(false);
   const [inputStack, setInputStack] = useState<string[]>([]);
+  const [keystrokes, setKeystrokes] = useState<number>(0);
+  const [corrections, setCorrections] = useState<number>(0);
+  const [mistakes, setMistakes] = useState<number>(0);
+  const [wpm, setWpm] = useState<number>();
+  //const [accuracy, setAccuracy] = useState<number>();
   const words = englishText.replace(/\n/g, '').split(' ');
 
   useEffect(() => {
@@ -28,17 +35,25 @@ export default function SpeedTest() {
   }
 
   function handleTimeOver() {
+    const accuracy = (keystrokes - mistakes) / (keystrokes + corrections);
+    console.log(accuracy);
+    console.log(keystrokes, mistakes, accuracy);
+    console.log(Math.ceil((keystrokes - mistakes) * accuracy / LETTERS_PER_WORD ));
+    setWpm(Math.ceil((keystrokes - mistakes) * accuracy / LETTERS_PER_WORD ));
     setIsDisabled(true);
   }
 
-  function handleKeyPress(e: React.KeyboardEvent<HTMLInputElement>) {
+  function calculateStrokes(e: KeyboardEvent<HTMLInputElement>) {
+    if (e.shiftKey) setKeystrokes(keystrokes + 2);
+    else setKeystrokes(keystrokes + 1)
+  }
+
+  function handleKeyPress(e: KeyboardEvent<HTMLInputElement>) {
     switch (e.keyCode) {
-      // Space hit
-      case 32:
-        e.preventDefault();
-        setInputStack([...inputStack, input]);
-        setInput('');
-        break;
+      // Escape restarts
+      case 27:
+        reset();
+        return;
       // Backspace
       case 8:
         if (inputStack.length > 0 && !input.length) {
@@ -47,12 +62,27 @@ export default function SpeedTest() {
           setInput(inputStack[lastIndex]);
           setInputStack(inputStack.slice(0, lastIndex))
         }
-        break;
-      // Escape restarts
-      case 27:
-        reset();
+        setCorrections(corrections+1);
+        return;
+      // Space hit
+      case 32:
+        e.preventDefault();
+        setInputStack([...inputStack, input]);
+        setInput('');
         break;
     }
+
+    calculateStrokes(e);
+  }
+
+  function handleInput(e: ChangeEvent<HTMLInputElement>) {
+    const value = e.target.value;
+
+    if (!words[inputStack.length].includes(value.trim())) {
+      setMistakes(mistakes + 1);
+    }
+
+    setInput(value);
   }
 
   return (
@@ -68,11 +98,11 @@ export default function SpeedTest() {
           type="text"
           disabled={isDisabled}
           value={input}
-          onChange={e => setInput(e.target.value)}
+          onChange={handleInput}
           onKeyDown={handleKeyPress}
+          autoFocus
         />
         <Timer
-          data-testid="timer"
           ref={timerRef}
           initTime={60 * 1}
           isRunning={isRunning}
@@ -80,7 +110,7 @@ export default function SpeedTest() {
         />
       </div>
       {isDisabled && <div>
-        Your word count is {inputStack.length / 2}!
+        Your word count is {wpm}!
       </div>}
     </div>
   )

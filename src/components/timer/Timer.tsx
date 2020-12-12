@@ -22,8 +22,8 @@ export const Timer = forwardRef(({
     direction = TimerDirection.DESC,
     onTimeOver
   }: TimerProps, ref) => {
-  const [time, setTime] = useState(initTime);
-  const [timeoutRef, setTimeoutRef] = useState();
+  const [time, setTime] = useState<number>(initTime);
+  const [timeoutRef, setTimeoutRef] = useState<NodeJS.Timeout|null>();
   const minutes = Math.floor(time / 60).toString();
   const seconds = (time % 60).toString();
 
@@ -52,7 +52,9 @@ export const Timer = forwardRef(({
       setTimeoutRef(null);
     }
 
-    return () => clearTimeout(timeoutRef);
+    return () => {
+      if (timeoutRef) clearTimeout(timeoutRef);
+    }
   }, [isRunning, timeoutRef]);
 
   return (

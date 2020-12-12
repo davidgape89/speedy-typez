@@ -4,19 +4,20 @@
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.4.0",
+    "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "@types/enzyme": "^3.10.5",
     "@types/enzyme-adapter-react-16": "^1.0.6",
     "@types/jest": "^24.9.1",
-    "@types/node": "^12.12.26",
-    "@types/react": "^16.9.19",
-    "@types/react-dom": "^16.9.5",
-    "node-sass": "^4.13.1",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-scripts": "3.3.1",
-    "typescript": "^3.7.5"
+    "@types/node": "^12.12.38",
+    "@types/react": "^16.9.34",
+    "@types/react-dom": "^16.9.7",
+    "cx": "^20.12.1",
+    "node-sass": "^4.14.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-scripts": "^3.3.1",
+    "typescript": "^3.8.3"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -42,6 +43,7 @@
   "devDependencies": {
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
-    "enzyme-to-json": "^3.4.4"
+    "enzyme-to-json": "^3.4.4",
+    "typed-scss-modules": "^3.4.0"
   }
 }
